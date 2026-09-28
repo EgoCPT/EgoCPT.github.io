@@ -8,8 +8,8 @@ research code remain marked **coming soon**. The anonymous review page requests
 that search engines not index it.
 
 The page contains 11 interactive contact comparisons, three real-robot clips,
-eight reconstructed trajectory clips, a policy montage, and the supplementary
-video. Reconstructed videos and the supplementary video are native 1080p;
+eight rollout clips, a policy montage, and the supplementary
+video. Rollout videos and the supplementary video are native 1080p;
 real-robot excerpts retain the approved source resolution and crop.
 
 ## Local preview
