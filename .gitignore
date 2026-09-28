@@ -1,0 +1,9 @@
+_local/
+_site/
+.DS_Store
+node_modules/
+__pycache__/
+*.log
+# Do not republish the double-blind manuscript without renewed approval.
+/static/paper/
+/static/**/*.pdf
