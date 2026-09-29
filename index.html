@@ -14,7 +14,9 @@
   <link rel="stylesheet" href="static/css/bulma.min.css">
   <link rel="stylesheet" href="static/css/nerfies.css">
   <link rel="stylesheet" href="static/css/site.css">
+  <link rel="stylesheet" href="static/css/flow.css">
   <script src="static/js/site.js" defer></script>
+  <script src="static/js/flow.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -86,6 +88,78 @@
             From human demonstrations to <strong>robot-feasible interactions.</strong>
           </h2>
           <p class="media-note has-text-centered">Dual-arm Franka + Sharpa. Videos play at 1x.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section flow-section" id="process" aria-labelledby="flow-title">
+      <div class="container is-max-widescreen">
+        <div class="flow-heading">
+          <p class="flow-eyebrow">EgoCPT, step by step</p>
+          <h2 id="flow-title">From human motion<br>to robot motion.</h2>
+          <p>One pouring demonstration. Four stages.</p>
+        </div>
+        <div class="motion-flow" data-stage="0" data-state="idle">
+          <div class="flow-screen" aria-label="Four-stage motion viewer">
+            <div class="flow-view is-active" id="flow-panel-0" role="tabpanel" aria-labelledby="flow-tab-0">
+              <video class="flow-video" muted playsinline controls preload="none" poster="static/images/flow-egodex.jpg" aria-label="Original EgoDex pouring video">
+                <source src="static/videos/flow-egodex-1080p.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="flow-view" id="flow-panel-1" role="tabpanel" aria-labelledby="flow-tab-1" aria-hidden="true" inert>
+              <video class="flow-video" muted playsinline controls preload="none" poster="static/images/flow-reconstruction.jpg" aria-label="Reconstructed hand skeletons and objects at the same time">
+                <source src="static/videos/flow-reconstruction-1080p.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="flow-view" id="flow-panel-2" role="tabpanel" aria-labelledby="flow-tab-2" aria-hidden="true" inert>
+              <video class="flow-video" muted playsinline controls preload="none" poster="static/images/flow-retarget.jpg" aria-label="Vanilla Sharpa retargeting at the same time">
+                <source src="static/videos/flow-retarget-1080p.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="flow-view" id="flow-panel-3" role="tabpanel" aria-labelledby="flow-tab-3" aria-hidden="true" inert>
+              <video class="flow-video" muted playsinline controls preload="none" poster="static/images/flow-egocpt.jpg" aria-label="EgoCPT optimized hand-object motion at the same time">
+                <source src="static/videos/flow-egocpt-1080p.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="flow-badge" aria-hidden="true"><span class="flow-stage-number">01</span><span class="flow-stage-label">EgoDex video</span></div>
+            <div class="flow-error" hidden role="status">This video could not load. <button type="button" class="flow-retry">Try again</button></div>
+          </div>
+          <div class="flow-controls">
+            <button class="flow-toggle flow-icon-button" type="button" aria-label="Play flow">
+              <svg class="flow-play-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 5 11 7-11 7z"/></svg>
+              <svg class="flow-pause-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h3v14H7zM14 5h3v14h-3z"/></svg>
+            </button>
+            <input class="flow-scrub" type="range" min="0" max="189" step="1" value="0" aria-label="Time within the pouring demonstration" aria-valuetext="0.0 of 6.3 seconds">
+            <span class="flow-clock" aria-hidden="true"><span class="flow-current-time">0.0</span><span> / 6.3 s</span></span>
+            <button class="flow-replay" type="button" aria-label="Replay all four stages">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10a8 8 0 1 1 1.2 7M4 4v6h6"/></svg><span>Replay flow</span>
+            </button>
+          </div>
+          <div class="flow-tabs" role="tablist" aria-label="Stages from video to EgoCPT">
+            <span class="flow-selection" aria-hidden="true"></span>
+            <button class="flow-tab" id="flow-tab-0" type="button" role="tab" aria-controls="flow-panel-0" aria-selected="true" tabindex="0" data-label="EgoDex video">
+              <img src="static/images/flow-egodex.jpg" width="96" height="54" alt="" loading="lazy">
+              <span class="flow-tab-copy"><span class="flow-tab-number">01</span><strong>EgoDex video</strong><span class="flow-tab-detail">Human demonstration</span></span>
+              <span class="flow-tab-progress" aria-hidden="true"><i></i></span>
+            </button>
+            <button class="flow-tab" id="flow-tab-1" type="button" role="tab" aria-controls="flow-panel-1" aria-selected="false" tabindex="-1" data-label="3D reconstruction">
+              <img src="static/images/flow-reconstruction.jpg" width="96" height="54" alt="" loading="lazy">
+              <span class="flow-tab-copy"><span class="flow-tab-number">02</span><strong>3D reconstruction</strong><span class="flow-tab-detail">Hands and objects</span></span>
+              <span class="flow-tab-progress" aria-hidden="true"><i></i></span>
+            </button>
+            <button class="flow-tab" id="flow-tab-2" type="button" role="tab" aria-controls="flow-panel-2" aria-selected="false" tabindex="-1" data-label="Vanilla retargeting">
+              <img src="static/images/flow-retarget.jpg" width="96" height="54" alt="" loading="lazy">
+              <span class="flow-tab-copy"><span class="flow-tab-number">03</span><strong>Vanilla retargeting</strong><span class="flow-tab-detail">Map motion to Sharpa</span></span>
+              <span class="flow-tab-progress" aria-hidden="true"><i></i></span>
+            </button>
+            <button class="flow-tab" id="flow-tab-3" type="button" role="tab" aria-controls="flow-panel-3" aria-selected="false" tabindex="-1" data-label="EgoCPT">
+              <img src="static/images/flow-egocpt.jpg" width="96" height="54" alt="" loading="lazy">
+              <span class="flow-tab-copy"><span class="flow-tab-number">04</span><strong>EgoCPT</strong><span class="flow-tab-detail">Refine hand–object contact</span></span>
+              <span class="flow-tab-progress" aria-hidden="true"><i></i></span>
+            </button>
+          </div>
+          <p class="flow-hint">Switch stages to compare the same moment. Drag the timeline to explore.</p>
+          <p class="flow-announcement flow-sr-only" aria-live="polite"></p>
         </div>
       </div>
     </section>
