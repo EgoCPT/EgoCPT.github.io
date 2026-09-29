@@ -170,7 +170,7 @@ try {
   await checkComparisonCompositing();
   await evaluate('document.querySelector("#contacts").scrollIntoView({behavior: "instant"})');
   await shot('comparison.png');
-  await evaluate('document.querySelector(".contact-task-heading").scrollIntoView({behavior: "instant"})');
+  await evaluate('document.querySelector("#contacts .comparison-grid + .comparison-grid").scrollIntoView({behavior: "instant"})');
   await shot('task-comparisons.png');
   await evaluate('document.querySelector("#taco-contacts").scrollIntoView({behavior: "instant"})');
   const tacoClip = await evaluate(`(() => {

@@ -70,7 +70,7 @@ sup { font-size: .65em; vertical-align: super; line-height: 0; }
 .task-comparison { background: white; border-radius: 16px; padding: 10px 10px 18px; }
 .task-comparison .image-comparison { aspect-ratio: 16/9; --comparison-bg: #d4d5d6; }
 .task-comparison.featured-comparison .image-comparison { aspect-ratio: 5/3; --comparison-bg: #d4d5d6; }
-.contact-task-heading { margin: 42px auto 24px; }
+.comparison-grid + .comparison-grid { margin-top: 24px; }
 .taco-contact-grid { margin-top: 24px; }
 @media (min-width: 601px) { .comparison-grid > .task-comparison:last-child:nth-child(odd) { grid-column: 1 / -1; width: calc((100% - 24px) / 2); justify-self: center; } }
 .task-comparison .detail-title { margin-top: 14px; line-height: 1.4; letter-spacing: -.015em; }

@@ -175,35 +175,18 @@
       </div>
     </section>
 
-    <section class="section" id="method">
-      <div class="container is-max-widescreen">
-        <h2 class="title is-3 has-text-centered">Object motion is the goal.<br>Hand motion is the reference.</h2>
-        <p class="section-intro">Noisy reconstruction and a change in embodiment can break hand–object contact. Instead of copying these contacts, EgoCPT searches for a robot-native way to realize the demonstrated object motion.</p>
-        <figure class="pipeline-figure">
-          <a href="static/images/pipeline.png" target="_blank" rel="noopener" aria-label="Open full-resolution EgoCPT pipeline figure">
-            <img src="static/images/pipeline.png" alt="EgoCPT pipeline: noisy reconstruction, contact-aware optimization, and residual reinforcement learning. Optimization alternates contact candidate sampling, pose refinement, and force allocation." loading="lazy" width="1760" height="1430">
-          </a>
-        </figure>
-        <div class="method-steps">
-          <article><span class="step-number">01</span><h3>Sample contacts</h3><p>Search near the demonstrated hand gesture for contacts reachable by the robot.</p></article>
-          <article><span class="step-number">02</span><h3>Refine the pose</h3><p>Adjust the wrists and fingers to remove penetration and close contact gaps.</p></article>
-          <article><span class="step-number">03</span><h3>Allocate forces</h3><p>Find contact forces consistent with the target object motion, then refine again when needed.</p></article>
-        </div>
-      </div>
-    </section>
-
     <section class="section section-soft" id="contacts">
       <div class="container is-max-widescreen">
-        <h2 class="title is-3 has-text-centered">See what changes at contact</h2>
-        <p class="section-intro">Drag the dividers to see how EgoCPT changes hand–object contact. Each pair shows the same moment from the same view.</p>
+        <h2 class="title is-3 has-text-centered">EgoCPT improves hand–object reconstruction</h2>
+        <p class="section-intro">Drag the dividers to see how EgoCPT improves hand–object reconstruction. Each pair shows the same moment from the same view.</p>
         <div class="comparison-grid">
           <article class="task-comparison featured-comparison" data-task="pour-cup">
             <div class="image-comparison" style="--split:50%">
               <img class="comparison-image" src="static/images/cup-after.png" alt="Optimized fingers contacting the cup surface" loading="lazy" width="2048" height="1229">
               <div class="before-layer"><img class="comparison-image" src="static/images/cup-before.png" alt="Retargeted fingers penetrating the cup wall" loading="lazy" width="2048" height="1229"></div>
-              <span class="comparison-label label-before">Vanilla</span><span class="comparison-label label-after">EgoCPT</span>
+              <span class="comparison-label label-before">Before</span><span class="comparison-label label-after">After</span>
               <span class="comparison-divider" aria-hidden="true"><span>‹ ›</span></span>
-              <input type="range" min="0" max="100" step="0.1" value="50" aria-label="Compare cup contact before and after optimization" aria-valuetext="50 percent vanilla retargeting, 50 percent EgoCPT">
+              <input type="range" min="0" max="100" step="0.1" value="50" aria-label="Compare cup contact before and after optimization" aria-valuetext="50 percent Before, 50 percent After">
             </div>
             <h3 class="detail-title">From penetration to surface contact</h3>
           </article>
@@ -211,14 +194,13 @@
             <div class="image-comparison" style="--split:50%">
               <img class="comparison-image" src="static/images/grasp-after.png" alt="New multi-finger grasp produced by contact-aware optimization" loading="lazy" width="2048" height="1229">
               <div class="before-layer"><img class="comparison-image" src="static/images/grasp-before.png" alt="Retargeted fingers with a gap to the bottle surface" loading="lazy" width="2048" height="1229"></div>
-              <span class="comparison-label label-before">Vanilla</span><span class="comparison-label label-after">EgoCPT</span>
+              <span class="comparison-label label-before">Before</span><span class="comparison-label label-after">After</span>
               <span class="comparison-divider" aria-hidden="true"><span>‹ ›</span></span>
-              <input type="range" min="0" max="100" step="0.1" value="50" aria-label="Compare bottle grasp before and after optimization" aria-valuetext="50 percent vanilla retargeting, 50 percent EgoCPT">
+              <input type="range" min="0" max="100" step="0.1" value="50" aria-label="Compare bottle grasp before and after optimization" aria-valuetext="50 percent Before, 50 percent After">
             </div>
             <h3 class="detail-title">A new grasp through contact-aware optimization</h3>
           </article>
         </div>
-        <h3 class="title is-4 has-text-centered contact-task-heading">Contact refinement across tasks</h3>
         <div class="comparison-grid">
           <article class="task-comparison" data-task="lint">
             <div class="image-comparison" style="--split:50%">
@@ -316,6 +298,23 @@
       </div>
     </section>
 
+    <section class="section" id="method">
+      <div class="container is-max-widescreen">
+        <h2 class="title is-3 has-text-centered">Object motion is the goal.<br>Hand motion is the reference.</h2>
+        <p class="section-intro">Noisy reconstruction and a change in embodiment can break hand–object contact. Instead of copying these contacts, EgoCPT searches for a robot-feasible way to realize the demonstrated object motion.</p>
+        <figure class="pipeline-figure">
+          <a href="static/images/pipeline.png" target="_blank" rel="noopener" aria-label="Open full-resolution EgoCPT pipeline figure">
+            <img src="static/images/pipeline.png" alt="EgoCPT pipeline: noisy reconstruction, contact-aware optimization, and residual reinforcement learning. Optimization alternates contact candidate sampling, pose refinement, and force allocation." loading="lazy" width="1760" height="1430">
+          </a>
+        </figure>
+        <div class="method-steps">
+          <article><span class="step-number">01</span><h3>Sample contacts</h3><p>Search near the demonstrated hand gesture for contacts reachable by the robot.</p></article>
+          <article><span class="step-number">02</span><h3>Refine the pose</h3><p>Adjust the wrists and fingers to remove penetration and close contact gaps.</p></article>
+          <article><span class="step-number">03</span><h3>Allocate forces</h3><p>Find contact forces consistent with the target object motion, then refine again when needed.</p></article>
+        </div>
+      </div>
+    </section>
+
     <section class="section" id="results">
       <div class="container is-max-widescreen">
         <h2 class="title is-3 has-text-centered">Multiple tasks. A shared formulation.</h2>
@@ -329,7 +328,7 @@
         </div>
         <p class="media-note has-text-centered">Visualized in Isaac Sim at 1×</p>
         <h3 class="title is-4 has-text-centered taco-heading">From video reconstruction to motion-capture inputs</h3>
-        <p class="section-intro">The same optimization also operates on high-quality TACO hand and object trajectories.</p>
+        <p class="section-intro">More demonstration on TACO dataset</p>
         <div class="taco-gallery">
           <figure class="result-card"><video class="auto-video" muted loop playsinline controls preload="none" poster="static/images/taco-pour-1080p.jpg" aria-label="TACO pouring rollout"><source src="static/videos/taco-pour-1080p.mp4" type="video/mp4"></video><figcaption>Pouring</figcaption></figure>
           <figure class="result-card"><video class="auto-video" muted loop playsinline controls preload="none" poster="static/images/taco-ladle-1080p.jpg" aria-label="TACO bowl and ladle rollout"><source src="static/videos/taco-ladle-1080p.mp4" type="video/mp4"></video><figcaption>Bowl &amp; Ladle</figcaption></figure>
