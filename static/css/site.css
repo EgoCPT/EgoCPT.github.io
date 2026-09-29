@@ -60,6 +60,10 @@ sup { font-size: .65em; vertical-align: super; line-height: 0; }
 .image-comparison > .comparison-image { clip-path: inset(0 0 0 var(--split)); }
 /* The renders have alpha: clip an opaque scene, not just its visible meshes. */
 .before-layer { position: absolute; inset: 0; background: var(--comparison-bg); clip-path: inset(0 calc(100% - var(--split)) 0 0); }
+/* Clip each label in the same coordinates as its image. */
+.comparison-label-layer { position: absolute; inset: 0; pointer-events: none; }
+.label-layer-before { clip-path: inset(0 calc(100% - var(--split)) 0 0); }
+.label-layer-after { clip-path: inset(0 0 0 var(--split)); }
 .comparison-label { position: absolute; top: 12px; border-radius: 5px; padding: 5px 9px; background: rgba(255,255,255,.93); color: #333940; font-size: 12px; font-weight: 600; pointer-events: none; }
 .label-before { left: 12px; } .label-after { right: 12px; }
 .comparison-divider { position: absolute; top: 0; bottom: 0; left: var(--split); width: 2px; background: white; box-shadow: 0 0 4px #0003; pointer-events: none; transform: translateX(-1px); }
