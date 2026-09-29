@@ -199,7 +199,7 @@ try {
     v.addEventListener('error', () => reject(new Error('Cannot decode video')), {once: true});
     v.preload = 'metadata'; v.load();
   })))`);
-  assert.equal(videoMetadata.length, 17);
+  assert.equal(videoMetadata.length, 19);
   for (const v of videoMetadata.filter(v => !v.src.startsWith('real-'))) {
     assert.equal(v.width, 1920, v.src); assert.equal(v.height, 1080, v.src);
   }

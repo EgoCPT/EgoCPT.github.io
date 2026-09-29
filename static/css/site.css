@@ -90,7 +90,9 @@ sup { font-size: .65em; vertical-align: super; line-height: 0; }
 .result-card video { display: block; width: 100%; aspect-ratio: 16/9; object-fit: contain; background: #62676d; border-radius: 9px; }
 .result-card figcaption { text-align: center; font-size: 16px; font-weight: 600; margin-top: 12px; }
 .taco-heading { margin-top: 54px; line-height: 1.4; }
-.taco-gallery { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 22px; }
+.taco-gallery { display: grid; grid-template-columns: repeat(6,minmax(0,1fr)); gap: 22px; }
+.taco-gallery .result-card { grid-column: span 2; }
+.taco-gallery .result-card:nth-last-child(-n+2) { grid-column: span 3; }
 .wall-block { margin-top: 42px; }
 .success-wall { width: 100%; border-radius: 10px; display: block; aspect-ratio: 16/9; background: #62676d; }
 .full-video { width: 100%; display: block; border-radius: 10px; background: #e8e9eb; aspect-ratio: 16/9; }
@@ -131,6 +133,7 @@ sup { font-size: .65em; vertical-align: super; line-height: 0; }
   .section-intro { font-size: 16px; }
   .method-steps { grid-template-columns: 1fr; gap: 20px; }
   .comparison-grid, .taco-gallery { grid-template-columns: 1fr; }
+  .taco-gallery .result-card, .taco-gallery .result-card:nth-last-child(-n+2) { grid-column: auto; }
   .task-gallery { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 22px 12px; }
   .task-gallery .result-card, .task-gallery .result-card:nth-last-child(-n+2) { grid-column: auto; }
   .task-gallery .result-card:last-child { grid-column: span 2; }
